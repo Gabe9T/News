@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Ignore service account key file
-backend/serviceAccountKey.json
+/backend/serviceAccountKey.json
 
 #env
 .env
