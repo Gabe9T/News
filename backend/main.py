@@ -57,7 +57,9 @@ def scrape_sitemap(url):
 
 def store_story(date, story):
     # Add story to Firestore under the specified date
-    db.collection('stories').document(date).collection('stories').add(story)
+    story['date'] = date
+    doc_ref = db.collection('stories').document(date).collection('stories').document(story['title'])
+    doc_ref.set(story)
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
