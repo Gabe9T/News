@@ -25,3 +25,6 @@ dist-ssr
 
 # Ignore service account key file
 backend/serviceAccountKey.json
+
+#env
+.env
