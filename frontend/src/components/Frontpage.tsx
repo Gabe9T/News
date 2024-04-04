@@ -14,7 +14,13 @@ const Frontpage: React.FC = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const storiesCollection = firestore.collection('stories').doc('04-03-24').collection('stories');
+        const currentDate = new Date().toLocaleDateString('en-US', {
+          month: '2-digit',
+          day: '2-digit',
+          year: '2-digit'
+        }).replace(/\//g, '-');
+
+        const storiesCollection = firestore.collection('stories').doc(currentDate).collection('stories');
         const snapshot = await storiesCollection.get();
         
         const fetchedStories: Story[] = [];
